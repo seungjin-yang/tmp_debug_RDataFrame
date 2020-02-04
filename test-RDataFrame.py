@@ -18,23 +18,8 @@ def main():
 
     df = ROOT.RDataFrame('Delphes', file_names)
 
-    # NOTE Jet
-    df = df.Define('jet_selection', 'abs(Jet.Eta) < 2.4')
-
-    df = df.Define('jet_pt', 'Jet.PT[jet_selection]')
-    df = df.Define('jet_constituents', 'Jet.Constituents[jet_selection]')
-    df = df.Define('jet_particles', 'Jet.Particles[jet_selection]')
-
-    df = df.Define('jet_size', 'jet_pt.size()')
-    df = df.Filter('jet_size > 4')
-    print(df.Count().GetValue())
-
-    df = df.Define('ht', 'testJetPT(jet_pt)')
-    df = df.Filter('ht > 100.0')
-    print(df.Count().GetValue())
-
-    df = df.Define('test_var', 'testJetCon(jet_constituents[0])')
-    df = df.Filter('test_var > 0.')
+    df = df.Define('test_var', 'testJetCon(Jet.Constituents[0])')
+    df = df.Filter('test_var > 0.0')
     print(df.Count().GetValue())
 
 

@@ -8,16 +8,6 @@
 
 using namespace ROOT::VecOps;
 
-Float_t testJetPT(const RVec<Float_t> & pt_vec) {
-  Float_t out = 0.0f;
-
-  for (unsigned int idx = 0; idx < pt_vec.size(); idx++) {
-    out += pt_vec[idx];
-  }
-
-  return out;
-}
-
 
 Float_t testJetCon(const TRefArray & constituents) {
   Float_t out = 0.0f;
@@ -62,6 +52,8 @@ Float_t testJetPar(const TRefArray & particles) {
   return out;
 }
 
+
+
 #endif // DelphesDataFrame_Tools_H_
 
 
@@ -69,7 +61,6 @@ Float_t testJetPar(const TRefArray & particles) {
 #pragma link off all globals;
 #pragma link off all classes;
 #pragma link off all functions;
-#pragma link C++ function testJetPT;
 #pragma link C++ function testJetCon;
 #pragma link C++ function testJetPar;
 #endif
