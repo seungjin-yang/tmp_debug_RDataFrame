@@ -43,6 +43,7 @@ Float_t testJetCon(const TRefArray & constituents) {
       num_tower++;
     } else {
       num_wrong++;
+      std::cerr << "[[WRONG]] " << con->ClassName() << " found" << std::endl;
     }
   }
 
